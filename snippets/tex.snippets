@@ -2,16 +2,20 @@
 #PREAMBLE
 #newcommand
 snippet nc \newcommand
-	\\newcommand{\\${1:cmd}}[${2:opt}]{${3:realcmd}} ${0}
+	\\newcommand{\\${1:cmd}}[${2:opt}]{${3:realcmd}}
+	${0}
 #usepackage
 snippet up \usepackage
-	\\usepackage[${1:options}]{${2:package}} ${0}
+	\\usepackage[${1:options}]{${2:package}}
+	${0}
 #newunicodechar
 snippet nuc \newunicodechar
-	\\newunicodechar{${1}}{${2:\\ensuremath}${3:tex-substitute}}} ${0}
+	\\newunicodechar{${1}}{${2:\\ensuremath}${3:tex-substitute}}}
+	${0}
 #DeclareMathOperator
 snippet dmo \DeclareMathOperator
-	\\DeclareMathOperator{${1}}{${2}} ${0}
+	\\DeclareMathOperator{${1}}{${2}}
+	${0}
 
 #DOCUMENT
 # \begin{}...\end{}
@@ -240,22 +244,22 @@ snippet fig figure environment (includegraphics)
 	\\end{figure}
 	${0}
 snippet tikz tikz figure enviroment (tikzpicture)
-	\\begin{figure}[${2:htpb}]
+	\\begin{figure}[${1:htpb}]
 		\\centering
-		\\begin{tikzpicture}[scale=${3:1}, transform shape]
-			${0}
+		\\begin{tikzpicture}[scale=${2:1}, transform shape]
+			${5}
 		\\end{tikzpicture}
-		\\caption{${4}}
-		\\label{fig:${5:${4/(\w+)\.\w+/$1/}}}}
+		\\caption{${3}}
+		\\label{fig:${4}}
 	\\end{figure}
-snippet subfig subfigure environment
-	\\begin{subfigure}[${1}]{${2:\\textwidth}}
-	\\begin{center}
-		${3}
-	\\end{center}
-	\\caption{${4}}
-	\\label{fig:${5}}
-	\\end{subfigure}
+	${0}
+snippet subfig subfigure enviroment
+	\begin{subfigure}[${1:b}]{${2:0.5\textwidth}}
+		\centering
+		\includegraphics[width=${3:0.8\linewidth}]{${4:name.ext}}
+		\caption{${5}}}
+		\label{fig:${6}}:${7:a}}
+	\end{subfigure}
 	${0}
 snippet tikzcd tikzcd environment in equation
 	\\begin{equation}
@@ -309,17 +313,21 @@ snippet \{ \{ \}
 	\\{ ${0} \\}
 #delimiter
 snippet lr left right
-	\\left${1} ${0} \\right$1
+	\\left${1} ${2:${VISUAL}} \\right${1} ${0}
 snippet lr( left( right)
-	\\left( ${0} \\right)
+	\\left( ${1:${VISUAL}} \\right) ${0}
 snippet lr| left| right|
-	\\left| ${0} \\right|
+	\\left| ${1:${VISUAL}} \\right| ${0}
 snippet lr{ left\{ right\}
-	\\left\\{ ${0} \\right\\}
+	\\left\\{ ${1:${VISUAL}} \\right\\} ${0}
 snippet lr[ left[ right]
-	\\left[ ${0} \\right]
+	\\left[ ${1:${VISUAL}} \\right] ${0}
 snippet lra langle rangle
-	\\langle ${0} \\rangle
+	\\left\\langle ${1:${VISUAL}} \\right\\rangle ${0}
+snippet floor "floor command" w
+	\\left\\lfloor{${1:${VISUAL}}}\\right\\rfloor ${0}
+snippet ceil "ceil command" w
+	\\left\\lceil{${1:${VISUAL}}}\\right\\rceil ${0}
 # Code listings
 snippet lst
 	\\begin{listing}[language=${1:language}]
