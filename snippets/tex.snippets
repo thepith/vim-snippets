@@ -254,12 +254,12 @@ snippet tikz tikz figure enviroment (tikzpicture)
 	\\end{figure}
 	${0}
 snippet subfig subfigure enviroment
-	\begin{subfigure}[${1:b}]{${2:0.5\textwidth}}
-		\centering
-		\includegraphics[width=${3:0.8\linewidth}]{${4:name.ext}}
-		\caption{${5}}}
-		\label{fig:${6}}:${7:a}}
-	\end{subfigure}
+	\\begin{subfigure}[${1:b}]{${2:0.5\\textwidth}}
+		\\centering
+		\\includegraphics[width=${3:0.8\\linewidth}]{${4:name.ext}}
+		\\caption{${5}}}
+		\\label{fig:${6}}:${7:a}}
+	\\\end{subfigure}
 	${0}
 snippet tikzcd tikzcd environment in equation
 	\\begin{equation}
