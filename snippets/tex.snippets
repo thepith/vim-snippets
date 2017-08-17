@@ -25,9 +25,12 @@ snippet begin \begin{} ... \end{} block
 	\\end{$1}
 # Tabular
 snippet tab tabular (or arbitrary) environment
+	\\begin{table}
+	\\caption{${3}\\label{fig:${4}}}
 	\\begin{${1:tabular}}{${2:c}}
 		${0:${VISUAL}}
 	\\end{$1}
+	\\end{tabular}
 snippet thm thm (or arbitrary) environment with optional argument
 	\\begin[${1:author}]{${2:thm}}
 		${0:${VISUAL}}
@@ -239,8 +242,7 @@ snippet fig figure environment (includegraphics)
 	\\begin{center}
 		\\includegraphics[scale=${1}]{Figures/${2}}
 	\\end{center}
-	\\caption{${3}}
-	\\label{fig:${4}}
+	\\caption{${3}\\label{fig:${4}}}
 	\\end{figure}
 	${0}
 snippet tikz tikz figure enviroment (tikzpicture)
